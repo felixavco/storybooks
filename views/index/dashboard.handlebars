@@ -1,0 +1,52 @@
+<h2>Welcome {{ user.firstName }}</h2>
+
+<div class="row">
+  <div class="col s12 m9">
+    <h4>Your Stories</h4>
+  </div>
+  <div class="col s12 m3">
+    <a href="/stories/add" class="btn red">
+      <i class="fas fa-plus"></i>
+      Add new Story
+    </a>
+  </div>
+</div>
+{{#if stories}}
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each stories}}
+    <tr>
+      <td>
+        <a href="/stories/show/{{id}}">{{title}}</a>
+      </td>
+      <td>{{formatDate date 'MMMM Do YYYY'}}</td>
+      <td>
+        <span class="dash-status">{{ status }}</span>
+      </td>
+      <td>
+        <a href="/stories/edit/{{id}}" class="btn left-aling tooltipped" data-position="top" data-delay="25" data-tooltip="Edit">
+          <i class="fas fa-pencil-alt"></i>
+        </a>
+
+        <form action="/stories/{{id}}?_method=DELETE" method="post" id="delete-form">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="btn red tooltipped" id="delete-st-btn" data-position="top" data-delay="25" data-tooltip="Delete">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{else}}
+<p>You have not created any story yet</p>
+{{/if}}

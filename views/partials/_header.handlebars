@@ -1,0 +1,114 @@
+<nav class="grey darken-3">
+  <div class="container">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">StoryBooks</a>
+      <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+        <i class="fa fa-bars"></i>
+      </a>
+      {{!-- Right nav --}}
+      <ul class="right hide-on-small-only ">
+        {{#if user}}
+        <li>
+          <a href="/dashboard">Welcome&nbsp;
+            <strong>{{ user.firstName }}</strong>
+          </a>
+        </li>
+        <li>
+          <a href="/auth/logout">Logout&nbsp;
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+        </li>
+        {{else}}
+        <li>
+          <a href="/stories">
+            <i class="fas fa-book"></i>&nbsp;Public Stories
+          </a>
+        </li>
+        {{/if}}
+      </ul>
+
+
+      {{!-- Side Menu --}} {{#if user}}
+      <ul id="slide-out" class="side-nav">
+        <li>
+          <div class="user-view">
+            <div class="background  teal darken-2">
+
+              <img src="/img/bg.png">
+            </div>
+            <a href="#!user">
+              <img class="circle" src="{{ user.image }}">
+            </a>
+            <a href="#!name">
+              <span class="white-text name">{{ user.firstName }} {{ user.lastName }}</span>
+            </a>
+            <a href="#!email">
+              <span class="white-text email">{{ user.email }}</span>
+            </a>
+          </div>
+        </li>
+        <li>
+          <a href="/dashboard">
+            <i class="fas fa-user-cog"></i>
+            &nbsp;
+            DashBoard
+          </a>
+        </li>
+         <li>
+          <a href="/stories/my">
+            <i class="fas fa-user-edit"></i>
+            &nbsp;
+            My Stories
+          </a>
+        </li>
+        <li>
+          <a href="/stories">
+            <i class="fas fa-book"></i>
+            &nbsp;
+            Public Stories
+          </a>
+        </li>
+        <li>
+          <a href="/stories/add" class="btn-">
+            <i class="fas fa-plus"></i>
+            &nbsp;
+            Add a new story
+          </a>
+        </li>
+        <li>
+          <div class="divider"></div>
+        </li>
+        {{!--
+        <li>
+          <a class="subheader">Subheader</a>
+        </li> --}}
+        <li>
+          <a class="waves-effect" href="/auth/logout">
+            Logout&nbsp;
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+        </li>
+      </ul>
+
+      {{else}}
+      <ul class="side-nav" id="slide-out">
+        <li>
+          <a href="/">
+            <h4>StoryBooks</h4>
+          </a>
+        </li>
+        <li>
+          <a href="/stories" class="btn grey darken-3">
+            <i class="fas fa-book"></i>&nbsp;Public Stories
+          </a>
+        </li>
+        <li>
+          <a href="/auth/google" class="red darken-1 btn">Login with Google&nbsp;
+            <i class="fab fa-google-plus-g"></i>
+          </a>
+        </li>
+      </ul>
+      {{/if}}
+    </div>
+  </div>
+</nav>

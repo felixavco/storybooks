@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.fa-bars{
+  font-size: 25px
+}
+
+footer{
+  margin-top: 20px;
+}
+
+.story-text{
+  height: 90px;
+}
+    
+.dash-status{
+  text-transform: capitalize;
+}
+
+#delete-form{
+  display: inline;
+}
+
+.show-img {
+  width: 150px;
+}
+
+.comment-txt{
+  color: #727272;
+  font-style: oblique;
+}
+
+hr{
+  color: #9e9e9e;
+  opacity: 0.3;
+}
+
+
