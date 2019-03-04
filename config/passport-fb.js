@@ -19,8 +19,9 @@ module.exports = function(passport) {
         firstName: profile._json.first_name,
         lastName: profile._json.last_name,
         email: profile._json.email,
-        image: profile._json.picture.data.url
+        image: '/img/default.png'
       }
+
 
       User.findOne({
         facebookID: profile._json.id
